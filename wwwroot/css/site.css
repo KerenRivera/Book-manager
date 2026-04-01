@@ -29,3 +29,28 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+body {
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.btn-primary {
+    background-color: #C4622D;
+    border-color: #C4622D;
+}
+
+    .btn-primary:hover {
+        background-color: #2D4A3E;
+        border-color: #2D4A3E;
+    }
+
+navbar {
+    background-color: #2D4A3E !important;
+}
