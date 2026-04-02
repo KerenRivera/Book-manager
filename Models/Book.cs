@@ -11,11 +11,15 @@ namespace Book_manager.Models
         public required int Pages { get; set; }
         public DateOnly PublicationDate { get; set; }
         public required string Summary { get; set; }
+
+        [Display(Name = "Cover URL")]
         public required string CoverImageUrl { get; set; }
         public int? Rating { get; set; }
         public int? Progress { get; set; }
         public DateTime? StartedDate { get; set; }
         public DateTime? FinishedDate { get; set; }
+
+        [Display(Name = "Review")]
         public string? RatingDescription { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
