@@ -10,32 +10,19 @@ using Book_manager.Models;
 
 namespace Book_manager.Controllers
 {
-    public class BooksController : Controller
+    public class CreateBooksController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public BooksController(ApplicationDbContext context)
+        public CreateBooksController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: CreateBooks
-        public async Task<IActionResult> Index( string searchString)
+        public async Task<IActionResult> Index()
         {
-            if (_context.Books == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Books' is null.");
-            }
-
-            var books = from m in _context.Books
-                        select m;
-
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                books = books.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
-            }
-
-            return View(await books.ToListAsync());
+            return View(await _context.Books.ToListAsync());
         }
 
         // GET: CreateBooks/Details/5
