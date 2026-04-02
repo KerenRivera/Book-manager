@@ -1,86 +1,96 @@
 ﻿@model Book_manager.Models.Book
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Book";
 }
 
-<h1>Create</h1>
-
-<h4>Book</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mt-4">
+    <h2 class="mb-4">📚 Add New Book</h2>
+    <div class="card p-4" style="max-width: 600px;">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+            
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label fw-bold"></label>
+                <input asp-for="Title" class="form-control" placeholder="Book title" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Author" class="control-label"></label>
-                <input asp-for="Author" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="Author" class="form-label fw-bold"></label>
+                <input asp-for="Author" class="form-control" placeholder="Author name" />
                 <span asp-validation-for="Author" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Genre" class="control-label"></label>
-                <input asp-for="Genre" class="form-control" />
-                <span asp-validation-for="Genre" class="text-danger"></span>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Genre" class="form-label fw-bold"></label>
+                    <input asp-for="Genre" class="form-control" placeholder="Genre" />
+                    <span asp-validation-for="Genre" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Pages" class="form-label fw-bold"></label>
+                    <input asp-for="Pages" class="form-control" placeholder="0" />
+                    <span asp-validation-for="Pages" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Pages" class="control-label"></label>
-                <input asp-for="Pages" class="form-control" />
-                <span asp-validation-for="Pages" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PublicationDate" class="control-label"></label>
+
+            <div class="mb-3">
+                <label asp-for="PublicationDate" class="form-label fw-bold"></label>
                 <input asp-for="PublicationDate" class="form-control" />
                 <span asp-validation-for="PublicationDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Summary" class="control-label"></label>
-                <input asp-for="Summary" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="Summary" class="form-label fw-bold"></label>
+                <textarea asp-for="Summary" class="form-control" rows="3" placeholder="Brief summary..."></textarea>
                 <span asp-validation-for="Summary" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CoverImageUrl" class="control-label"></label>
-                <input asp-for="CoverImageUrl" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="CoverImageUrl" class="form-label fw-bold"></label>
+                <input asp-for="CoverImageUrl" class="form-control" placeholder="https://..." />
                 <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Rating" class="form-label fw-bold">Rating (1-5)</label>
+                    <input asp-for="Rating" class="form-control" type="number" min="1" max="5" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Progress" class="form-label fw-bold">Pages Read</label>
+                    <input asp-for="Progress" class="form-control" type="number" min="0" />
+                    <span asp-validation-for="Progress" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Progress" class="control-label"></label>
-                <input asp-for="Progress" class="form-control" />
-                <span asp-validation-for="Progress" class="text-danger"></span>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="StartedDate" class="form-label fw-bold"></label>
+                    <input asp-for="StartedDate" class="form-control" />
+                    <span asp-validation-for="StartedDate" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="FinishedDate" class="form-label fw-bold"></label>
+                    <input asp-for="FinishedDate" class="form-control" />
+                    <span asp-validation-for="FinishedDate" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="StartedDate" class="control-label"></label>
-                <input asp-for="StartedDate" class="form-control" />
-                <span asp-validation-for="StartedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FinishedDate" class="control-label"></label>
-                <input asp-for="FinishedDate" class="form-control" />
-                <span asp-validation-for="FinishedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RatingDescription" class="control-label"></label>
-                <input asp-for="RatingDescription" class="form-control" />
+
+            <div class="mb-3">
+                <label asp-for="RatingDescription" class="form-label fw-bold"></label>
+                <textarea asp-for="RatingDescription" class="form-control" rows="2" placeholder="Your thoughts..."></textarea>
                 <span asp-validation-for="RatingDescription" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="d-flex gap-2">
+                <input type="submit" value="Add Book" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
