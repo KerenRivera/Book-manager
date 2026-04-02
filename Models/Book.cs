@@ -21,6 +21,8 @@ namespace Book_manager.Models
 
         [Display(Name = "Review")]
         public string? RatingDescription { get; set; }
+        [Display(Name = "Status")]
+        public ReadingStatus? Status { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
