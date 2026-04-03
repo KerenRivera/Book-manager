@@ -52,6 +52,14 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CoverImageUrl)
         </dd>
+        <dt class="col-sm-2">
+            Reading Status
+        </dt>
+        <dd class="col-sm-10">
+            <span class="badge" style="background-color: #C4622D;">
+                @Html.DisplayFor(model => model.Status)
+            </span>
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Rating)
         </dt>
