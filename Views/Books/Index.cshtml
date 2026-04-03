@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Book_manager.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Reading List <3</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary mb-4">+ Add Book</a>
+</p>
+
+<div class="d-flex gap-2 mb-4">
+    <form asp-controller="Books" asp-action="Index" method="get" class="d-flex gap-2">
+        <input type="text" name="SearchString" class="form-control" placeholder="Search by title..." />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="@item.CoverImageUrl" class="card-img-top" alt="@item.Title" style="height: 250px; object-fit: cover;" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text text-muted">@item.Author</p>
+                    <p class="card-text">@item.Genre</p>
+                    <span class="badge" style="background-color: #C4622D;">@item.Status.ToString()</span>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
