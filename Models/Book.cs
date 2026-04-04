@@ -9,7 +9,8 @@ namespace Book_manager.Models
         public required string Author { get; set; }
         public required string Genre { get; set; }
         public required int Pages { get; set; }
-        public DateOnly PublicationDate { get; set; }
+        [Display(Name = "Publication Year")]
+        public DateOnly PublicationYear { get; set; }
         public required string Summary { get; set; }
 
         [Display(Name = "Cover URL")]
