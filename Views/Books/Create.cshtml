@@ -46,7 +46,7 @@
 
             <div class="mb-3">
                 <label asp-for="PublicationYear" class="form-label fw-bold"></label>
-                <input asp-for="PublicationYear" class="form-control" />
+                <input asp-for="PublicationYear" class="form-control" type="number" min="1000" max="2026" placeholder="Ej: 2020" />
                 <span asp-validation-for="PublicationYear" class="text-danger"></span>
             </div>
 
